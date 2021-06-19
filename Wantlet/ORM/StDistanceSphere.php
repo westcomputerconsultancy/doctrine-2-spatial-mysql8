@@ -7,15 +7,13 @@ use Doctrine\ORM\Query\Lexer;
 /**
  * DQL function for calculating distances between two points
  *
- * Example: DISTANCE(foo.point, POINT_STR(:param))
+ * Example: St_Distance_Sphere(foo.point, POINT_STR(:param))
  */
 class StDistanceSphere extends FunctionNode {
     private $firstArg;
     private $secondArg;
 
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker) {
-        //Need to do this hacky linestring length thing because
-        //despite what MySQL manual claims, DISTANCE isn't actually implemented...
         return 'St_Distance_Sphere(' .
                $this->firstArg->dispatch($sqlWalker) .
                ', ' .
