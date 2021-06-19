@@ -31,6 +31,6 @@ class Point {
 
     public function __toString() {
         //Output from this is used with POINT_STR in DQL so must be in specific format
-        return sprintf('POINT(%f %f)', $this->latitude, $this->longitude);
+        return sprintf('POINT(%f %f)', $this->longitude, $this->latitude);
     }
 }
